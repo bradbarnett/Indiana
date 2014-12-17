@@ -1,0 +1,1756 @@
+<!doctype html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Lifetime Communities Tool</title>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="horizontal-scroll.js"></script>
+<script type="text/javascript" src="house.js"></script>
+<!-- <script type="text/javascript" src="comm.js"></script> -->
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="scripts/jquery-ui.min.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="scripts/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="layout.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+
+
+</head>
+<body>
+
+<div id="head">
+<img src="/img/iulogo.png">
+<div id="titlecontainer">
+<div class="titletext">Lifetime Communities Tool</div>
+</div>
+<div id="nav">
+	<span class="section" id="status-introid" name="Intro">Intro</span> &rarr;
+	<span class="section" id="status-houseid" name="House">House</span> &rarr;
+	<span class="section" id="status-commid" name="Community">Community</span> &rarr;
+	<span class="section" id="status-currid" name="Profile">Current Lifestyle</span> &rarr;
+	<span class="section" id="status-sub" name="Results">Results</span>
+</div>
+<!-- <li><a href="#intro">intro</a></li>
+<li><a href="#house">house</a></li>
+<li><a href="#community">community</a></li>
+<li><a href="#demog">demog</a></li>
+<li><a href="#results">results</a></li> -->
+
+</div>
+
+<div id="wrap">
+<div id="intro">
+	<div id="bgimg">
+	<div class="pagecontainer">
+		<div class="inlineblock">
+		<div class="section group lower">
+			<div id="centercontainer">
+			<div id="introcon1">
+					<div id="introtext" class="transparentbox">	
+						<p class="intro">
+						Welcome to the future of Bloomington, Indiana, the home of Indiana University. With 
+			
+						help from you, we are designing the country’s first “Lifetime Community District” smack 
+						
+						in the middle of a vibrant and beautiful small city. 
+						</p>
+
+
+						<p class="intro">
+						This anonymous survey/game will help us better understand the future needs of potential and current residents. We'll ask you to chose what type of community, home, and amenities are most important to you. 
+						Go ahead, get started!
+						</p>
+					</div>
+			</div>
+			<!-- ok -->
+			<div id="introcon2">	
+					<div id="introbox" class="right transparentbox">
+							<div class="currquestion right">
+							<div class="qcontainer">
+							<h4 class="intro">Age</h4>
+							</div>
+							<div class="acontainer">
+								<input type="text" id="currage" size="3">	
+							</div>
+							</div>
+							<div class="currquestion right">
+							<div class="qcontainer">
+							<h4 class="intro">Gender</h4>
+							</div>
+							<div class="acontainer">
+								<select id="curr-gender">
+				        		<option value="NA">--</option>
+				        		<option value="Retired">Male</option>
+				        		<option value="Retired">Female</option>
+				        		</select>
+				        	</div>
+							</div>
+							<div class="currquestion right">
+							<div class="qcontainer">
+							<h4 class="intro">Zip Code</h4>
+							</div>
+							<div class="acontainer">
+							<input type="text" id="curr-zip"size="5"/>
+							</div>
+							</div>
+							<div class="currquestion right">
+							<div class="qcontainer">
+							<h4 class="intro">Household Income</h4>
+							</div>
+							<div id="curr-income" class="acontainer">
+								<select id="curr-income">
+				        		<option value="NA">Prefer not to say</option>
+				        		<option value="29000">$30k or less</option>
+				        		<option value="30000">$30k to $60k</option>
+				        		<option value="60000">$60k to 90k</option>
+				        		<option value="90000">$90k or more</option>
+				        		</select>
+				        	
+							<a href="#house-instructions"><input id="houseid" type="button" value="Get Started!" class="nav clouds-flat-button-sm margin50"></a> 
+							</div>	
+							</div>
+							
+					</div>
+					</div>
+			</div>	
+		</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div id="house-instructions">	
+	<div class="pagecontainer">
+		<div class="inlineblock">
+			<div class="section group">
+				<div class="col span_3_of_3 relative">
+					
+						<div class="instructions-announcement">
+							<span class="highlight introductions">
+							Instructions 
+							</span>
+						</div>
+					<div class="instructions">
+						<div class="instructions-container">
+							<div class="instructions-left">
+								<h4>1. Explore different communities</h4> 
+								Hover over different community types to see which homes are typically available in that community. 
+								For each community type, click on "details"	to learn more about the typical character, roads, parking, and land uses.
+							</div>
+							<div class="instructions-right">
+								<img class="instructions-img" src="img/hoverexample.png">
+							</div>
+						</div>
+						<div class="instructions-container">
+						<div class="instructions-left">
+							To learn more about a home type, hover over the home's image. 	
+						</div>
+						<div class="instructions-right">
+							<img class="instructions-img" src="img/hoverexample2.png">
+						</div>
+						</div>
+						<div class="instructions-container">
+						<div class="instructions-left">
+							<h4>2. Select a community type</h4>   	
+						</div>
+						<div class="instructions-right">
+							<img class="instructions-img" src="img/selected.png">
+						</div>
+						</div>
+						<div class="instructions-container">
+						<div class="instructions-left">
+							<h4>3. Click "Continue" to start narrowing down your choice of home.</h4>   	
+						</div>
+						<div class="instructions-right">
+							<img class="instructions-img" src="img/continueexample.png">
+							
+						</div>
+						<div class="instructions-left">
+								
+						</div>
+						<div id="prevnext" class="instructions-right">
+							<a href="#house"><input id="houseid" type="button" value="Next »" class="nav clouds-flat-button-sm margin-top"></a>
+							<a href="#intro"><input id="introid" type="button" value="« Intro" class="nav clouds-flat-button-sm margin-top"></a>
+								
+						</div>
+					
+					</div>
+				
+				</div>
+
+			</div>
+		</div>
+	</div>	
+</div>
+</div>
+<div id="house">
+	<div class="pagecontainer">
+		<div class="inlineblock">
+			<div class="section group">
+				<div class="col span_4_of_3 leadin">
+				<div class="highlightbox part-one">
+				<span class="highlight house">My ideal community is...</span>
+
+				</div>
+				<div class="highlightbox part-two house-hide">
+				<span class="highlight house">I want to live in a home that...</span>
+
+				</div>
+				</div>	
+				<div class="col span_2_of_3 leadin">
+				<div class="highlightbox part-one">
+				<span class="highlight house">
+				Matching homes & transport: 
+				</span>
+				</div>
+				<div class="highlightbox part-two house-hide">
+				<span class="highlight house">
+				Choose from your matching homes: 
+				</span>
+				</div>
+				</div>	
+			<div class="colcontain span_45_of_3">	
+				<div class="col span_56_of_3 part-one">
+
+					<div id="urbandowntown" class="content-house-one .walkM .transitM .bikeM .carM">
+						<div class="overlaychoice"></div>
+						<div><button type="button" class="choice .walkM .transitM .bikeM .carM" name="select" title="Urban Downtown" value="urbandowntown"> Select</button></div>
+						<div class="popupelements">
+							<div class="transectdetails move">&#x2B; Details</div>						
+							<div class="popuptext move">
+								<h4 class="house-one">Urban Downtown</h4>
+								<div class="bodytext"> 
+									<ul id="textul">
+									<li class="textul">Mixed-Use with 2-5 story buildings</li>
+									<li class="textul">Roads arranged in a grid/block layout</li>
+									<li class="textul">Employment, Commercial & Cultural Hub</li>
+									<li class="textul">Street Parking, Structured Parking</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="urbanneighborhood" class="content-house-one .walkM .transitM .bikeM .carM">
+						<div class="overlaychoice"></div>
+						<div><button type="button" class="choice .walkM .transitM .bikeM .carM" name="select" title="Urban Neighborhood" value="urbanneighborhood"> Select</button></div>
+						<div class="popupelements">
+							<div class="transectdetails move">&#x2b;  Details</div>						
+							<div class="popuptext move">
+								<h4 class="house-one">Urban Neighborhood</h4>
+								<div class="bodytext"> 
+									<ul id="textul">
+									<li class="textul">Mixed-use with 1-3 story buildings</li>
+									<li class="textul">Roads arranged in a grid/block layout</li>
+									<li class="textul">Mostly residential, with some neighborhood-scale businesses</li>
+									<li class="textul">Street parking, some driveways</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+										
+					<div id="suburban" class="content-house-one .carM">
+						<div class="overlaychoice"></div>
+						<div><button type="button" class="choice .carM" name="select" title="Suburb" value="suburban"> Select</button></div>
+						<div class="popupelements">
+							<div class="transectdetails move">&#x2B; Details</div>						
+							<div class="popuptext move">
+								<h4 class="house-one">Suburban</h4>
+								<div class="bodytext"> 
+									<ul id="textul">
+									<li class="textul">Separated uses, mostly 1-2 story buildings</li>
+									<li class="textul">Residential subdivisions, with commercial strip development along corridors</li>
+									<li class="textul">Driveways and large surface parking</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+
+
+
+				</div>
+				
+
+				<div class="col span_56_of_3 part-one">
+					
+					
+					<div id="smalltown" class="content-house-one .walkM .carM .bikeM">
+						<div class="overlaychoice"></div>
+						<div><button type="button" class="choice .walkM .carM .bikeM" name="select" title="Small Town" value="smalltown"> Select</button></div>
+						<div class="popupelements">
+							<div class="transectdetails move">&#x2B; Details</div>						
+							<div class="popuptext move">
+								<h4 class="house-one">Small Town</h4>
+								<div class="bodytext"> 
+									<ul id="textul">
+									<li class="textul">Fewer than 10,000 people</li>
+									<li class="textul">Roads arranged in a loose grid/block layout</li>
+									<li class="textul">Often contain a historic center</li>
+									<li class="textul">Mix of street parking, driveways, and small surface lots</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+
+
+					<div id="rural" class="content-house-one .carM">
+						<div class="overlaychoice"></div>
+						<div><button type="button" class="choice .carM" name="select" title="Rural Setting" value="rural"> Select</button></div>
+						<div class="popupelements">
+							<div class="transectdetails move">&#x2b;  Details</div>						
+							<div class="popuptext move">
+								<h4 class="house-one">Rural</h4>
+								<div class="bodytext"> 
+									<ul id="textul">
+									<li class="textul">Mostly agriculture, forest, or undeveloped</li>
+									<li class="textul">Mostly county or state roads</li>
+									<li class="textul">Sparse residential development</li>
+									<li class="textul">Typically involves driving longer distances to daily needs</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="next-stage" class="">
+						<a><input type="button" value="Continue »" class="clouds-flat-button-vert disabled" ></a>
+					</div>
+				</div>
+				
+
+				
+				<div class="col span_56_of_3 part-two house-hide">
+					<div id="house-size" class="content-house">
+						<h4 class="house">...is about: </h4> <span id="size-amount"> </span>:
+						<div id="size-slider-range">				
+							<span id="size-amount"> </span>
+						</div>
+						<div id="size-slider-container" class="slider-container house">
+						</div>
+						<div id="extras"> 
+							<div class="listB">       
+				            <input type="checkbox" value="garage" id="filter-garage"  />
+				            <label for="filter-garage">attached garage</label>
+				        	</div>
+				            <div class="listB">
+				            <input type="checkbox" value="yard" id="filter-yard"  />
+				            <label for="filter-yard">private yard</label>
+							</div>
+						</div>
+					</div>
+				
+					<div id="house-cost" class="content-house">
+						<h4 class="house">...costs up to:</h4> <span id="cost-amount"> </span>
+						<div id="cost-slider-range">				
+						</div>
+						<div id="cost-slider-container" class="slider-container house">
+						</div>
+						<div id="ownership" class="listA">
+				         
+					            <input type="checkbox" value="own" id="filter-own" />
+					            <label for="filter-own">own</label>
+				         
+					            <input type="checkbox"  value="rent" id="filter-rent"  />
+					            <label for="filter-rent">rent</label>     
+							</li>
+						</div>
+					</div>
+					
+					<!-- <div id="house-transport" class="content-house">
+						<h4 class="house">...makes it easy to get around by:</h4>
+						
+						<div class="listB"> 
+								       
+				            <input type="checkbox" group="transport" value="driving" id="filter-driving"  />
+				            <label for="filter-driving">Driving</label>
+				        	
+				       </div> 
+
+							<div class="listB">	       
+				            <input type="checkbox" group="transport" value="walking" id="filter-walking"  />
+				            <label for="filter-walking">Walking</label>
+				        	</div>
+				            <div class="listB">
+				            <input type="checkbox" group="transport" value="biking" id="filter-biking"  />
+				            <label for="filter-biking">Biking</label>
+							</div>
+				            <div class="listB">
+				            <input type="checkbox" group="transport"  value="transit" id="filter-transit"  />
+				            <label for="filter-transit">Transit</label>
+							</div>
+				            <div class="listB">
+				            <input type="checkbox" group="transport" value="ondemand" id="filter-ondemand"  />
+				            <label for="filter-ondemand">On Demand Transit</label>
+							</div>
+							<div class="listB">	       
+				            <input type="checkbox" group="transport" value="carshare" id="filter-carshare"  />
+				            <label for="filter-carshare">Carshare</label>
+				        	</div>
+				            <div class="listB">
+				            <input type="checkbox" group="transport" value="taxi" id="filter-taxi"  />
+				            <label for="filter-taxi">Taxi</label>
+							</div>
+						
+					</div> -->
+				<div id="prev-stage" class="">
+						<a><input type="button" value="« Go Back" class="clouds-flat-button-vert disabled leftbutton" ></a>
+					</div>	
+					
+					
+				</div>
+				
+				<div class="col span_56_of_3 part-two house-hide">
+
+					
+					<div id="house-features" class="content-house">
+						<h4 class="house">...includes the following universal design features: </h4> 
+						<div id="features"> 
+							<div class="listC">	       
+				            <input type="checkbox" group="features" value="nostep" id="filter-nostep"  />
+				            <label for="filter-nostep">No-step entry</label>
+				        	</div>
+				            <div class="listC">
+				            <input type="checkbox" group="features" value="onestory" id="filter-onestory"  />
+				            <label for="filter-onestory">One-story floorplan</label>
+							</div>
+							<div class="listC">	       
+				            <input type="checkbox" group="features" value="nonslip" id="filter-nonslip"  />
+				            <label for="filter-nonslip">Non-slip floors/tubs</label>
+				        	</div>
+				            <div class="listC">
+				            <input type="checkbox" group="features"  value="widedoor" id="filter-widedoor"  />
+				            <label for="filter-widedoor">Wide doorways</label>
+							</div>
+							<div class="listC">	       
+				            <input type="checkbox" group="features" value="widehall" id="filter-widehall"  />
+				            <label for="filter-widehall">Wide halls</label>
+				        	</div>
+				            <div class="listC">
+				            <input type="checkbox" group="features" value="extrafloor" id="filter-extrafloor"  />
+				            <label for="filter-extrafloor">Extra floor space</label>
+							</div>
+							<div class="listC">	       
+				            <input type="checkbox" group="features" value="flush" id="filter-flush"  />
+				            <label for="filter-flush">Flush thresholds</label>
+				        	</div>
+				            <div class="listC">
+				            <input type="checkbox" group="features" value="lighting" id="filter-lighting"  />
+				            <label for="filter-lighting">Good lighting</label>
+							</div>
+							<div class="listC">	       
+				            <input type="checkbox" group="features" value="leverdoor" id="filter-leverdoor"  />
+				            <label for="filter-leverdoor">Lever door handles</label>
+				        	</div>
+				            <div class="listC">
+				            <input type="checkbox" group="features"  value="reachablecontrols" id="filter-reachablecontrols"  />
+				            <label for="filter-reachablecontrols">Reachable controls</label>
+							</div>
+							<div class="listC">	       
+				            <input type="checkbox" group="features" value="support" id="filter-support"  />
+				            <label for="filter-support">Support services</label>
+				        	</div>
+				        	<div class="listC">	       
+				            <input type="checkbox" group="features" value="shower" id="filter-support"  />
+				            <label for="filter-support">Walk-in/Roll-in Shower</label>
+				        	</div>
+						</div>
+					</div>
+					
+				</div>
+				
+			
+		
+		</div>		
+				<div class="col span_2_of_3">
+				<div class="center-text tips">Tip: Hover over a housing type to learn more about it. </div>
+				<div class="content-house">
+					<div id="thumbs">
+						<div id="micro" class="house-thumb rent walking biking transit carshare ondemand taxi multigen seniorliving selected urbandowntown urbanneighborhood" data-size1="300" data-size2="750" data-price1="50000" data-price2="200000">
+							<div class="img">
+								<img src="img/110px/MicroApartments-110px.png">
+							</div> 
+							<div class="thumbtitle long">Micro-Apartment</div>
+							<div class="thumbcheck house-hide part-two"><input type="radio" name="thumbcheck" value="MicroApartments" title="Micro Apartment"> Select</div>
+						</div>
+						<div id="micro" class="hover-house perf">	
+							<div class="perfcontainer">
+								<img class="perfimg" src="img/500px/MicroApartments-500px.jpg">
+								<div class="text">
+								500-750 square feet studio-type apartment especially designed for efficient and affordable living. Some feature designer elements such as fold down furnishings, higher ceilings with loft, movable walls. 
+							</div>
+								<div class="performance">
+									
+									<div class="catcontainer">
+										<span class="performance-text">Parking:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/1cirG.png" class="cir">
+									</div>
+									<br />
+								<div class="catcontainer">
+										<span class="performance-text">Privacy:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/2cirG.png" class="cir">
+									</div>
+								</div>
+								<div class="performance">
+									<div class="catcontainer">
+										<span class="performance-text">Maintenance:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/1cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Cost of Living:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/2cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Socializing:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/4cirG.png" class="cir">
+									</div>
+									
+								</div>
+							</div>
+							</div>			
+							
+							
+							
+							
+							
+						<div id="apt" class="house-thumb rent rent garage walking biking transit carshare ondemand taxi multigen senior living urbandowntown urbanneighborhood suburban" data-size1="400" data-size2="1200" data-price1="50000" data-price2="250000">
+							<div class="img">
+								<img src="img/110px/Apartments3-110px.png">
+							</div> 
+							
+							<div class="thumbtitle">Apartment</div>
+							<div class="thumbcheck house-hide part-two"><input type="radio" name="thumbcheck" value="Apartments3" title="Apartment"> Select</div>
+							</div>
+							
+							<div id="apt" class="perf hide">	
+							<div class="perfcontainer">
+							<img class="perfimg" src="img/500px/Apartments3-500px.jpg">
+							<div class="text">
+								A relatively self-contained housing unit in a building which is often rented out to one person or a family, or two or more people sharing a lease in a partnership, for their exclusive use.
+							</div>
+							<div class="perfcontainer">
+								
+								<div class="performance">
+									
+									<div class="catcontainer">
+										<span class="performance-text">Parking:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/1cirG.png" class="cir">
+									</div>
+									<br />
+								<div class="catcontainer">
+										<span class="performance-text">Privacy:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/2cirG.png" class="cir">
+									</div>
+								</div>
+								<div class="performance">
+									<div class="catcontainer">
+										<span class="performance-text">Maintenance:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/2cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Cost of Living:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/2cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Socializing:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									
+								</div>
+							</div>
+							</div>
+							</div>	
+						<div id="condo" class="house-thumb own garage walking biking transit carshare ondemand taxi driving multigen seniorliving urbandowntown urbanneighborhood suburban" data-size1="600" data-size2="1800" data-price1="65000" data-price2="300000">
+							<div class="img">
+								<img src="img/110px/Condos1-110px.png">
+							</div> 
+							<div class="thumbtitle">Condo</div>
+							<div class="thumbcheck house-hide part-two"><input type="radio" name="thumbcheck" value="Condos1" title="Condo"> Select</div>
+							</div>
+							
+							<div id="condo" class="perf hide">	
+							
+							<div class="perfcontainer">
+							<img class="perfimg" src="img/500px/Condos1-500px.jpg">
+							<div class="text">
+								A form of ownership with individual apartments for everyone, and co-ownership (by percentages) of all of the common areas, such as corridors, hallways, stairways, lobbies, recreation rooms, porches, rooftops, and any outdoor areas of the grounds of the buildings. Can be single level attached, townhomes, or in large buildings. 
+							</div>
+							<div class="perfcontainer">
+								
+								<div class="performance">
+									
+									<div class="catcontainer">
+										<span class="performance-text">Parking:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+								<div class="catcontainer">
+										<span class="performance-text">Privacy:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+								</div>
+								<div class="performance">
+									<div class="catcontainer">
+										<span class="performance-text">Maintenance:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Cost of Living:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/4cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Socializing:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/4cirG.png" class="cir">
+									</div>
+									
+								</div>
+							</div>
+							</div>	
+							</div>
+						<div id="townhouse" class="house-thumb own rent garage walking biking transit carshare ondemand taxi driving multigen urbanneighborhood suburban" data-size1="800" data-size2="2400" data-price1="90000"  data-price2="110000" data-price2="300000">
+							<div class="img">
+								<img src="img/110px/Townhomes1-110px.png">
+							</div> 
+							<div class="thumbtitle">Townhouse</div>
+							<div class="thumbcheck house-hide part-two"><input type="radio" name="thumbcheck" value="Townhomes1" title="Townhouse"> Select</div>
+							</div>
+							
+							<div id="townhouse" class="perf hide">	
+							<div class="perfcontainer">
+							<img class="perfimg" src="img/500px/Townhomes1-500px.jpg">
+							<div class="text">
+								Also called a Rowhouse. Usually two-story apartments with shared walls in an urban environment ,now coming into use as a term for new terraced houses, which are often three or more stories tall and may include a garage on the ground floor.
+							</div>
+							<div class="perfcontainer">
+								
+								<div class="performance">
+									
+									<div class="catcontainer">
+										<span class="performance-text">Parking:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+								<div class="catcontainer">
+										<span class="performance-text">Privacy:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+								</div>
+								<div class="performance">
+									<div class="catcontainer">
+										<span class="performance-text">Maintenance:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Cost of Living:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/4cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Socializing:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									
+								</div>
+							</div>
+							</div>	
+							</div>
+						<div id="cottage" class="house-thumb own garage yard walking biking transit carshare ondemand taxi driving multigen urbanneighborhood suburban smalltown rural" data-size1="900" data-size2="1800" data-price1="125000" data-price2="325000">
+							<div class="img">
+								<img src="img/110px/Cottage-110px.png">
+							</div> 
+							<div class="thumbtitle">Small Lot House</div>
+							<div class="thumbcheck house-hide part-two"><input type="radio" name="thumbcheck" value="Cottage" title="Small Lot House"> Select</div>
+							</div>
+							
+							<div id="cottage" class="perf hide">	
+							<div class="perfcontainer">
+							<img class="perfimg" src="img/500px/Cottage-500px.png">
+							<div class="text">
+								Smaller single family detached home, 1-2 bedrooms, small lot. In Bloomington, often semi-urban bungalows and arts and crafts style. 
+							</div>
+							<div class="perfcontainer">
+								
+								<div class="performance">
+									
+									<div class="catcontainer">
+										<span class="performance-text">Parking:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/4cirG.png" class="cir">
+									</div>
+									<br />
+								<div class="catcontainer">
+										<span class="performance-text">Privacy:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/4cirG.png" class="cir">
+									</div>
+								</div>
+								<div class="performance">
+									<div class="catcontainer">
+										<span class="performance-text">Maintenance:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/4cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Cost of Living:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/4cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Socializing:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									
+								</div>
+							</div>
+							</div>	
+							</div>
+						<div id="large" class="house-thumb own garage yard ondemand driving taxi multigen suburban smalltown rural" data-size1="1600" data-size2="3000" data-price1="145000" data-price2="400000">
+							<div class="img">
+								<img src="img/110px/LgSingleFamily-110px.png">
+							</div> 
+							<div class="thumbtitle long">Large Lot House</div>
+							<div class="thumbcheck house-hide part-two"><input type="radio" name="thumbcheck" value="LgSingleFamily" title="Large Single Family House"> Select</div>
+							</div>
+							
+							<div id="large" class="perf hide">	
+							<div class="perfcontainer">
+							<img class="perfimg" src="img/500px/LgSingleFamily-500px.jpg">
+							<div class="text">
+								Traditional suburban or semi-urban structure with 2-4 bedrooms, 2,500-3000 square feet, large lot, often a garage, in a neighborhood defined by this house type.
+							</div>
+							<div class="perfcontainer">
+								
+								<div class="performance">
+									
+									<div class="catcontainer">
+										<span class="performance-text">Parking:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/5cirG.png" class="cir">
+									</div>
+									<br />
+								<div class="catcontainer">
+										<span class="performance-text">Privacy:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/5cirG.png" class="cir">
+									</div>
+								</div>
+								<div class="performance">
+									<div class="catcontainer">
+										<span class="performance-text">Maintenance:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/5cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Cost of Living:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/5cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Socializing:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/2cirG.png" class="cir">
+									</div>
+									
+								</div>
+							</div>
+							</div>	
+							</div>
+						<div id="cohousing" class="house-thumb own garage yard rent walking biking transit carshare taxi ondemand driving seniorliving multigen urbanneighborhood smalltown rural" data-size1="700" data-size2="1400" data-price1="50000" data-price2="250000">
+							<div class="img">
+								<img src="img/110px/Cohousing-110px.png">
+							</div> 
+							<div class="thumbtitle">Cohousing</div>
+							<div class="thumbcheck house-hide part-two"><input type="radio" name="thumbcheck" value="Cohousing" title="Cohousing"> Select</div>
+							</div>
+							
+							<div id="cohousing" class="perf hide">	
+							<div class="perfcontainer">
+							<img class="perfimg" src="img/500px/Cohousing-500px.jpg">
+							<div class="text">
+								A type of intentional community composed of private homes supplemented by shared facilities. The community is planned, owned and managed by the residents – who also may share some activities. Common facilities may include a kitchen, dining room, laundry, offices, guest room, and recreational features. Can be multi-generational or seniors-only. 
+							</div>
+							<div class="perfcontainer">
+								
+								<div class="performance">
+									
+									<div class="catcontainer">
+										<span class="performance-text">Parking:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+								<div class="catcontainer">
+										<span class="performance-text">Privacy:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/2cirG.png" class="cir">
+									</div>
+								</div>
+								<div class="performance">
+									<div class="catcontainer">
+										<span class="performance-text">Maintenance:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Cost of Living:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Socializing:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/5cirG.png" class="cir">
+									</div>
+									
+								</div>
+							</div>
+							</div>	
+							</div>
+						<div id="shared" class="house-thumb rent garage yard walking biking transit carshare taxi ondemand  multigen urbanneighborhood suburban smalltown" data-size1="1000" data-size2="1500" data-price1="50000" data-price2="125000">
+							<div class="img">
+								<img src="img/110px/SharedHousing-110px.png">
+							</div> 
+							<div class="thumbtitle">Shared Living</div>
+							<div class="thumbcheck house-hide part-two"><input type="radio" name="thumbcheck" value="SharedHousing" title="SharedHousing"> Select</div>
+							</div>
+							<div id="shared" class="perf hide">	
+							<div class="perfcontainer">
+							<img class="perfimg" src="img/110px/SharedHousing-110px.png">
+							<div class="text">
+								Familiar from the Golden Girls TV show, this housing brings together 3-5 individuals into a single household with common kitchen. This can occur in a number of settings, usually in a single detached home. 
+							</div>
+							<div class="perfcontainer">
+								
+								<div class="performance">
+									
+									<div class="catcontainer">
+										<span class="performance-text">Parking:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+								<div class="catcontainer">
+										<span class="performance-text">Privacy:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+								</div>
+								<div class="performance">
+									<div class="catcontainer">
+										<span class="performance-text">Maintenance:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Cost of Living:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/3cirG.png" class="cir">
+									</div>
+									<br />
+									<div class="catcontainer">
+										<span class="performance-text">Socializing:</span>
+									</div>
+									<div class="circontainer">
+										<img src="img/5cirG.png" class="cir">
+									</div>
+									
+								</div>
+							</div>
+							</div>
+							</div>
+					</div>
+				</div>
+					<div id="detailedcontainer" class="content-house static">
+						<div class="transport-house  transitM"><img class="transporticon" src="img/TransitIcon.png" /><div class="transport-title">Transit</div></div>
+						<div class="transport-house  carM"><img class="transporticon" src="img/CarIcon.png" /><div class="transport-title">Car</div></div>
+						<div class="transport-house  walkM"><img class="transporticon" src="img/WalkIcon.png" /><div class="transport-title">Walk</div></div>
+						<div class="transport-house  bikeM"><img class="transporticon" src="img/BikeIcon.png" /><div class="transport-title">Bike</div></div>
+					</div>
+					
+					
+					<a href="#comm-instructions"><input id="commid" type="button" value="Next »" class="nav clouds-flat-button-sm house-controls disabled "></a>
+					<a href="#house-instructions"><input id="houseid" type="button" value="« Instructions" class="nav clouds-flat-button-sm"></a>	
+				
+					</div>
+					
+								</div>
+				 
+			</div>
+			
+		</div>
+	</div>					
+	<script type="text/javascript">
+	
+	$(".clouds-flat-button-vert").not("disabled").click(function() {
+		$(".part-one").fadeToggle(500);
+		$(".part-two").fadeToggle(1000);
+	})
+	
+	$(".popupelements").find(".move").click(function() {
+		// $(".popupelements").children().removeClass("advance",600);
+		$(".transectdetails").html("&#x2b;  Details");
+		
+		// $('.popupelements').find("move").removeClass('advance',600);
+		// $(this).siblings().not(".transectdetails").removeClass("advance", 600);
+		$(this).parent().find(".move").not(this).toggleClass("advance", 600);
+
+		$(".advance.popuptext.move").not(this).removeClass("advance", 600);
+	
+		// $(this).parent().find(".transectdetails").toggleClass("advance");
+		if ( $(this).hasClass("transectdetails") ) {
+			$(this).parent().find(".advance.popuptext.move").removeClass("advance", 600);
+			$(this).parent().find(".transectdetails").toggleClass("advance", 600);
+			$(".transectdetails").not(this).removeClass("advance", 600);
+			// $(this).parent().find(".transectdetails.move").toggleClass("advance", 600);
+		}
+		else  {
+			// $(this).parent().find(".advance.move").removeClass("advance", 600);
+			// $(".transectdetails").removeClass("advance", 600);
+			$(this).parent().find(".transectdetails").toggleClass("advance", 600);
+			$(this).parent().find(".move").toggleClass("advance", 600);
+			// $(".advance.move").not(this).removeClass("advance", 600);
+			// $(this).parent().find(".transectdetails.move").toggleClass("advance", 600);
+		}
+		// else {
+			// return;
+		// }
+		
+		if ( $(this).parent().find(".transectdetails").hasClass("advance") ) {
+			$(this).parent().find(".transectdetails").html("&#x2715;  Close");
+		}
+		else {	
+		$(this).parent().find(".transectdetails").html("&#x2b;  Details")
+		};
+	})
+	
+	$(".choice:button").click(function() {
+		var transect = $(this).val();
+	    var transectID = "#" + transect;
+	    var transectChoiceTitle = $(this).attr('title');
+	   	
+	    $(".content-house-one:not(" + transectID + ")").find(".overlaychoice").removeClass("greencheck");
+	    $(transectID).find(".overlaychoice").toggleClass("greencheck");
+
+	    $(".transect-choice-title").html("<h2 class='results'>" + transectChoiceTitle + "</h2>");
+	    // $("#transect-choice-img").html("<img src='img/" + transect + ".png' width='350px'>");
+	    $(".clouds-flat-button-sm.house-controls").delay(200).addClass("navyfill", 600).removeClass("navyfill", 600);
+
+		$()
+		$(".choice").not(this).removeClass("chosen").text("Select");
+		$(".selection").not(this).removeClass("selection");
+		$(this).toggleClass("selection").text($(this).text() == 'Selected' ? 'Select' : 'Selected');
+		if ($(".choice:button").hasClass("selection")) {
+			$(".clouds-flat-button-vert").removeClass("disabled").delay(1000).addClass("navyfill", 600).removeClass("navyfill", 600);
+		}
+     	else {
+     		$(".clouds-flat-button-vert").addClass("disabled");
+     	}
+	})
+	
+
+	
+	$(".content-house-one").mouseenter(function() {
+		// $(this).find('.overlaychoice').css("opacity",0);
+		if ($(this).find("button.choice").hasClass("selection")) {
+			return;	
+		}
+		else if ($('.content-house-one').find("button.choice").hasClass("selection")) {
+			$('.content-house-one').find("button.choice").removeClass("chosen");
+			$('.content-house-one').find(".choice").removeClass("chosen");	
+			$(this).find(".choice").addClass("chosen");
+			
+		}
+		else {
+		$('.content-house-one').find(".choice").removeClass("chosen");
+		$(this).find(".choice").addClass("chosen");
+		};
+			$("#detailedcontainer").find(".transport-house").css("opacity", .1);
+			var transportVal = null;
+			var transportVal = $(this).attr("class").toString().split(" ");		
+			var itemtoRemove = "content-house-one";
+		    transportVal.splice($.inArray(itemtoRemove, transportVal),1);
+			var transportVal = transportVal.join(", ");
+			console.log(transportVal);
+			$("#detailedcontainer").find(transportVal).css("opacity", .65);
+		
+
+			
+		}
+	).mouseleave(function() {
+		// $(this).find('.overlaychoice').css("opacity",.075);
+		if ($('.content-house-one').find(".choice").hasClass("selection")) {
+			$('.content-house-one').find(".choice").removeClass("chosen");
+			$('.content-house-one').find(".selection").addClass("chosen selection");
+			$("#detailedcontainer").find(".transport-house").css("opacity", .1);
+			var transportVal = $(".selection").attr("class").toString().split(" ");		
+			var itemtoRemove = "content-house-one";
+		    transportVal.splice($.inArray(itemtoRemove, transportVal),1);
+			var transportVal = transportVal.join(", ");
+			console.log(transportVal);
+			$("#detailedcontainer").find(transportVal).css("opacity", .65);
+		}
+		else {
+		$('.content-house-one').find(".choice").removeClass("chosen");
+		transportVal = null;
+		console.log(transportVal);
+		$("#detailedcontainer").find(".transport-house").css("opacity", .1);
+		// $(this).parent().find("div.choice").removeClass("chosen");
+		};
+		
+		
+
+	})	
+	
+
+</script>	
+			
+
+
+
+
+
+
+
+						
+						
+
+<div id="comm-instructions">	
+	<div class="pagecontainer">
+		<div class="inlineblock">
+			<div class="section group">
+				<div class="col span_3_of_3">
+					
+						<div class="instructions-announcement">
+							<span class="highlight introductions">
+							Instructions 
+							</span>
+						</div>
+					<div class="instructions">
+						On the next page you will choose which amenities you want nearby your next residence. See the diagram below for instructions. When you're ready, click "Next"!
+				<div class="instructions-container">
+				
+				</div>	
+				<img class="grayscale" src="img/instrdiagram.png">
+				
+				<div id="next-house">
+							<a href="#community"><input id="commid" type="button" value="Next »" class="nav clouds-flat-button-sm"></a>
+							<a href="#house"><input id="houseid" type="button" value="« House" class="nav clouds-flat-button-sm"></a>
+</div>
+				</div>
+
+			</div>
+		</div>
+	</div>	
+</div>
+</div>
+
+<div id="community">
+	<div class="pagecontainer">
+		<div class="inlineblock">
+			<div class="section group">	
+				<div class="col span_7_of_3 leadin">
+				<div class="highlightbox">
+				<span class="highlight comm">
+					I want these amenities nearby...
+				</span>
+				</div>	
+				</div>	
+				<div class="col span_8_of_3 leadin">
+					<div class="highlightbox">
+					<span class="highlight comm">
+					How I could 
+					<!-- </span>
+					<div id="spacelead">
+					<span class="highlight comm"> -->
+					get around: 
+					</span>
+					</div>
+					</div>
+				</div>	
+				
+				<div class="col span_7_of_3 overflowbox">
+
+					<div class="col span_5_of_3">
+						<div class="content-comm" >
+							
+							<div class="transitright" id="groceryicons">
+								<div class="transit-thumb walk" data-mindist="0" data-maxdist="0.5"></div>
+								<div class="transit-thumb bike" data-mindist="0" data-maxdist="2"></div>
+								<div class="transit-thumb drive exclgrocery" data-mindist="0.75" data-maxdist="5"></div>
+								<div class="transit-thumb transitmode" data-mindist="0.75" data-maxdist="5"></div>
+							</div>
+							<h4 class="comm">Grocery Stores</h4>		
+							<li class="I-would-go">
+				        	I would go <select id="groceryfreq">
+				        		<option value="1">--</option>
+				        		<option value="30">daily</option>
+				        		<option value="15">3 days/week</option>
+				        		<option value="4">weekly</option>
+				        		<option value="1.5">monthly</option>
+				        	</select>
+				        	</li>
+							
+							<div id="grocery-slider-range-min" class="slider-container">
+							<div class="min">0</div><div class="max">5+ mi.</div>
+							</div>
+							
+							
+							<div class="listC">
+							<li class="exclude">	       
+				            <input type="checkbox" group="grocery" value="exclgrocery" id="filter-exclgrocery"  />
+				            <label class="exclude" for="filter-exclgrocery">Exclude car</label>
+				        	</li>
+				        	
+				        	</div>
+						</div>
+						
+						<div class="content-comm" >
+							
+							<div class="transitright" id="cafeicons">
+								<div class="cafeicons walk" data-mindist="0" data-maxdist="0.5"></div>
+								<div class="cafeicons bike" data-mindist="0" data-maxdist="2"></div>
+								<div class="cafeicons drive exclcafe" data-mindist="0.75" data-maxdist="5"></div>
+								<div class="cafeicons transitmode" data-mindist="0.75" data-maxdist="5"></div>
+							</div>
+							<h4 class="comm">Cafe & Coffee Shops</h4>		
+							<div>
+							<li class="I-would-go">
+				        	I would go <select id="cafefreq">
+				        		<option value="1">--</option>
+				        		<option value="30">daily</option>
+				        		<option value="15">3 days/week</option>
+				        		<option value="4">weekly</option>
+				        		<option value="1.5">monthly</option>
+				        	</select>
+							</div>
+							<div id="cafe-slider-range-min" class="slider-container">
+							<div class="min">0</div><div class="max">5+ mi.</div>
+							</div>
+							<div class="listC">
+							<li class="exclude">	       
+				            <input type="checkbox" group="cafe" value="exclcafe" id="filter-exclcafe"  />
+				            <label class="exclude" for="filter-exclcafe">Exclude car</label>
+				        	</li>
+				        	</div>
+						</div>
+						
+						<div class="content-comm" >
+							
+							<div class="transitright" id="worshipicons">
+								<div class="transit-thumb walk" data-mindist="0" data-maxdist="0.5"></div>
+								<div class="transit-thumb bike" data-mindist="0" data-maxdist="2"></div>
+								<div class="transit-thumb drive exclworship" data-mindist="0.75" data-maxdist="5"></div>
+								<div class="transit-thumb transitmode" data-mindist="0.75" data-maxdist="5"></div>
+							</div>
+							<h4 class="comm">Places of Worship</h4>	
+							<li class="I-would-go">
+				        	I would go <select id="worshipfreq">
+				        		<option value="1">--</option>
+				        		<option value="30">daily</option>
+				        		<option value="15">3 days/week</option>
+				        		<option value="4">weekly</option>
+				        		<option value="1.5">monthly</option>
+				        	</select>
+				        	</li>
+							<div id="worship-slider-range-min" class="slider-container">
+							<div class="min">0</div><div class="max">5+ mi.</div>
+							</div>
+							
+							<div class="listC">
+							<li class="exclude">	       
+				            <input type="checkbox" group="worship" value="exclworship" id="filter-exclworship"  />
+				            <label class="exclude" for="filter-exclworship">Exclude car</label>
+				        	</li>
+				        	
+				        	</div>
+						</div>						
+
+						<div class="content-comm" >
+							
+							<div class="transitright" id="restaurantsicons">
+								<div class="transit-thumb walk" data-mindist="0" data-maxdist="0.5"></div>
+								<div class="transit-thumb bike" data-mindist="0" data-maxdist="2"></div>
+								<div class="transit-thumb drive exclrestaurants" data-mindist="0.75" data-maxdist="5"></div>
+								<div class="transit-thumb transitmode" data-mindist="0.75" data-maxdist="5"></div>
+							</div>
+							<h4 class="comm">Restaurants</h4>		
+							<li class="I-would-go">
+				        	I would go <select id="restaurantsfreq">
+				        		<option value="1">--</option>
+				        		<option value="30">daily</option>
+				        		<option value="15">3 days/week</option>
+				        		<option value="4">weekly</option>
+				        		<option value="1.5">monthly</option>
+				        	</select>
+				        	</li>
+							<div id="restaurants-slider-range-min" class="slider-container">
+							<div class="min">0</div><div class="max">5+ mi.</div>
+							</div>
+							
+							<div class="listC">
+							<li class="exclude">	       
+				            <input type="checkbox" group="restaurants" value="exclrestaurants" id="filter-exclrestaurants"  />
+				            <label class="exclude" for="filter-exclrestaurants">Exclude car</label>
+				        	</li>
+				        	
+				        	</div>
+						</div>	
+						
+
+
+					</div>
+					<div class="col span_5_of_3">
+						<div class="content-comm" >
+							
+							<div class="transitright" id="eduicons">
+								<div class="transit-thumb walk" data-mindist="0" data-maxdist="0.5"></div>
+								<div class="transit-thumb bike" data-mindist="0" data-maxdist="2"></div>
+								<div class="transit-thumb drive excledu" data-mindist="0.75" data-maxdist="5"></div>
+								<div class="transit-thumb transitmode" data-mindist="0.75" data-maxdist="5"></div>
+							</div>
+							<h4 class="comm">Educational Events</h4>		
+							<li class="I-would-go">
+				        	I would go <select id="edufreq">
+				        		<option value="1">--</option>
+				        		<option value="30">daily</option>
+				        		<option value="15">3 days/week</option>
+				        		<option value="4">weekly</option>
+				        		<option value="1.5">monthly</option>
+				        	</select>
+				        	</li>
+							<div id="edu-slider-range-min" class="slider-container">
+							<div class="min">0</div><div class="max">5+ mi.</div>
+							</div>
+							
+							<div class="listC">
+							<li class="exclude">	       
+				            <input type="checkbox" group="edu" value="excledu" id="filter-excledu"  />
+				            <label class="exclude" for="filter-excledu">Exclude car</label>
+				        	</li>
+				        	
+				        	</div>
+						</div>		
+						
+						<div class="content-comm" >
+							
+							<div class="transitright" id="artsicons">
+								<div class="transit-thumb walk" data-mindist="0" data-maxdist="0.5"></div>
+								<div class="transit-thumb bike" data-mindist="0" data-maxdist="2"></div>
+								<div class="transit-thumb drive exclarts" data-mindist="0.75" data-maxdist="5"></div>
+								<div class="transit-thumb transitmode" data-mindist="0.75" data-maxdist="5"></div>
+							</div>
+							<h4 class="comm">Arts & Entertainment</h4>		
+							<li class="I-would-go">
+				        	I would go <select id="artsfreq">
+				        		<option value="1">--</option>
+				        		<option value="30">daily</option>
+				        		<option value="15">3 days/week</option>
+				        		<option value="4">weekly</option>
+				        		<option value="1.5">monthly</option>
+				        	</select>
+				        	</li>
+							<div id="arts-slider-range-min" class="slider-container">
+							<div class="min">0</div><div class="max">5+ mi.</div>
+							</div>
+							
+							<div class="listC">
+							<li class="exclude">	       
+				            <input type="checkbox" group="arts" value="exclarts" id="filter-exclarts"  />
+				            <label class="exclude" for="filter-exclarts">Exclude car</label>
+				        	</li>
+				        	
+				        	</div>
+						</div>	
+						<div class="content-comm" >
+							
+							<div class="transitright" id="recicons">
+								<div class="transit-thumb walk" data-mindist="0" data-maxdist="0.5"></div>
+								<div class="transit-thumb bike" data-mindist="0" data-maxdist="2"></div>
+								<div class="transit-thumb drive exclrec" data-mindist="0.75" data-maxdist="5"></div>
+								<div class="transit-thumb transitmode" data-mindist="0.75" data-maxdist="5"></div>
+							</div>
+							<h4 class="comm">Parks & Outdoor Rec</h4>		
+							<li class="I-would-go">
+				        	I would go <select id="recfreq">
+				        		<option value="1">--</option>
+				        		<option value="30">daily</option>
+				        		<option value="15">3 days/week</option>
+				        		<option value="4">weekly</option>
+				        		<option value="1.5">monthly</option>
+				        	</select>
+				        	</li>
+							<div id="rec-slider-range-min" class="slider-container">
+							<div class="min">0</div><div class="max">5+ mi.</div>
+							</div>
+							
+							<div class="listC">
+							<li class="exclude">	       
+				            <input type="checkbox" group="rec" value="exclrec" id="filter-exclrec"  />
+				            <label class="exclude" for="filter-exclrec">Exclude car</label>
+				        	</li>
+				        	
+				        	</div>
+						</div>	
+						<div class="content-comm" >
+							
+							<div class="transitright" id="medicons">
+								<div class="transit-thumb walk" data-mindist="0" data-maxdist="0.5"></div>
+								<div class="transit-thumb bike" data-mindist="0" data-maxdist="2"></div>
+								<div class="transit-thumb drive exclmed" data-mindist="0.75" data-maxdist="5"></div>
+								<div class="transit-thumb transitmode" data-mindist="0.75" data-maxdist="5"></div>
+							</div>
+							<h4 class="comm">Medical Care</h4>		
+							<li class="I-would-go">
+				        	I would go <select id="medfreq">
+				        		<option value="1">--</option>
+				        		<option value="30">daily</option>
+				        		<option value="15">3 days/week</option>
+				        		<option value="4">weekly</option>
+				        		<option value="1.5">monthly</option>
+				        	</select>
+				        	</li>
+							<div id="med-slider-range-min" class="slider-container">
+							<div class="min">0</div><div class="max">5+ mi.</div>
+							</div>
+							
+							<div class="listC">
+							<li class="exclude">	       
+				            <input type="checkbox" group="med" value="exclmed" id="filter-exclmed"  />
+				            <label class="exclude" for="filter-exclmed">Exclude car</label>
+				        	</li>
+				        	
+				        	</div>
+						</div>	
+						
+					</div>
+				</div>
+				<div class="col span_8_of_3" id="comm-third">
+					<div id="anno" class="tips">Here are the percent of trips that could be taken each month by each transportation option.</div>
+
+					<div id="bar-demo">
+					</div>
+					
+					<!-- <div id="facts">
+						<script language="JavaScript">
+						
+						function random_imglink(){
+						var myimages=new Array()
+						myimages[1]="img/Community.png"
+						myimages[2]="img/Exercise.png"
+						myimages[3]="img/MixedUse.png"
+						myimages[4]="img/Transportation.png"
+						myimages[5]="img/Walking.png"
+						
+						var ry=Math.floor(Math.random()*myimages.length)
+						if (ry==0)
+						ry=1
+						document.write('<img src="'+myimages[ry]+'" border=0>')
+						}
+						random_imglink()
+						
+						</script>
+					</div> -->
+					
+					
+				</div>
+					
+					<div id="detailedcontainer">
+					<a href="#demog"><input id="currid" type="button" value="Next »" class="nav clouds-flat-button-sm"></a>
+					<a href="#comm-instructions"><input id="commid" type="button" value="« Instructions" class="nav clouds-flat-button-sm"></a>
+					
+					</div>	
+			</div>
+		
+		</div>
+	</div>
+
+
+<div id="demog">
+	<div class="pagecontainer">
+		<div class="inlineblock">
+			<div class="section group">	
+				<div class="col span_3_of_3 leadin">
+					
+					<div class="highlightbox curr">
+					<span class="highlight curr">
+
+					Almost Done!</span>
+					<div id="spacelead">
+					<span class="highlight curr"> Describe your current lifestyle...
+					</span>
+					</div>					
+					</div>
+					
+				</div>	
+				<div class="col span_3_of_3">
+					<div class="col span_6_of_3">
+						<div class="content-curr">
+							<h4 class="curr">Profile</h4>
+							<div class="currquestion">
+							<h5>What is your higheset level of attained education?</h5>
+								<select id="curr-edu">
+				        		<option value="NA">--</option>
+				        		<option value="someHS">Some high school</option>
+				        		<option value="HS">High school</option>
+				        		<option value="somecoll">Some college</option>
+				        		<option value="coll">College</option>
+				        		<option value="grad">Graduate school</option>
+				        		</select>
+							</div>
+							<div class="currquestion">
+							<h5>How many hours do you work per week?</h5>
+								<select id="curr-work">
+				        		<option value="NA">--</option>
+				        		<option value="10">10 or fewer</option>
+				        		<option value="20">10-20</option>
+				        		<option value="30">20-30</option>
+				        		<option value="30">30-40</option>
+				        		<option value="40">40 or more</option>
+				        		<option value="Retired">Retired/Not working</option>
+				        		</select>
+							</div>
+							<div class="currquestion">
+							<h5>Which of the following do you receive?</h5>
+								<select id="curr-medi">
+				        		<option value="NA">--</option>
+				        		<option value="medicare">Medicare</option>
+				        		<option value="medicaid">Medicaid</option>
+				        		<option value="both">Both</option>
+				        		<option value="neither">Neither</option>
+				        		</select>
+							</div>
+							<div class="currquestion">
+							<h5>In general, how would you rate your health?</h5>
+								<select id="curr-health">
+				        		<option value="NA">--</option>
+				        		<option value="poor">Poor</option>
+				        		<option value="fair">Fair</option>
+				        		<option value="good">Good</option>
+				        		<option value="very good">Very good</option>
+				        		<option value="excellent">Excellent</option>
+				        		</select>
+							</div>
+
+						</div>
+						
+					
+					</div>
+					<div class="col span_6_of_3">
+						<div class="content-curr">
+						<h4 class="curr">Home</h4>
+							<div class="currquestion">
+							<h5>How would you describe your neighborhood?</h5>
+							<select id="curr-neighborhood">
+				        		<option value="NA">--</option>
+				        		<option value="rural">Rural</option>
+				        		<option value="small_town">Small town</option>
+				        		<option value="suburban">Suburban</option>
+				        		<option value="somewhat_urban">Somewhat urban</option>
+				        		<option value="highly_urban">Highly urban</option>
+				        	</select>
+				        	</div>
+				        	<div class="currquestion">
+							<h5>Do your rent or own your home?</h5>
+								<select id="curr-own">
+				        		<option value="NA">--</option>
+				        		<option value="rent">Rent</option>
+				        		<option value="own">Own</option>
+				        		</select>
+							</div>
+							<div class="currquestion">
+							<h5>What are your average monthly rent or mortgage costs?</h5>
+								
+				        		$ <input type="text" id="curr-costs"size="6"/>
+				        		</select>
+							</div>
+							<div class="currquestion">
+							<h5>How likely are you to move in the next 10 years?</h5>
+								<select id="curr-move">
+				        		<option value="NA">--</option>
+				        		<option value="not">Not very likely</option>
+				        		<option value="somewhat">Somewhat likely</option>
+				        		<option value="very">Very likely</option>
+				        		</select>
+							</div>
+							<div class="currquestion">
+							<h5>How likely are you to move to Bloomington?</h5>
+								<select id="curr-bloom">
+				        		<option value="NA">--</option>
+				        		<option value="1">1 (Not at all likely)</option>
+				        		<option value="2">2</option>
+				        		<option value="3">3</option>
+				        		<option value="4">4</option>
+				  				<option value="5">5</option>
+				        		<option value="6">6</option>
+				        		<option value="7">7</option>
+				        		<option value="8">8</option>
+				        		<option value="9">9</option>
+				        		<option value="10">10 (Very Likely)</option>
+				        		<option value="Already">I already live in Bloomington</option>
+				        		</select>
+							</div>
+						</div>	
+					</div>
+					<div class="col span_6_of_3">
+						<div class="content-curr">
+							<div class="currquestion">
+							<h4 class="curr">Community/Regional</h4>
+							<h5>How important is each community or regional amenity to you? (1-5, Low-High)</h5>
+								<span class="currtext"><li>Major health care facilities</span>
+								<select id="curr-healthfacilities">
+				        		<option value="NA">--</option>
+				        		<option value="1">1</option>
+				        		<option value="2">2</option>
+				        		<option value="3">3</option>
+				        		<option value="4">4</option>
+				        		<option value="5">5</option>
+				        		</select>
+				        		</li>
+				        		<li>Climate/Natural Surroundings
+								<select id="curr-climate">
+				        		<option value="NA">--</option>
+				        		<option value="1">1</option>
+				        		<option value="2">2</option>
+				        		<option value="3">3</option>
+				        		<option value="4">4</option>
+				        		<option value="5">5</option>
+				        		</select>
+				        		</li>
+				        		<li>Proximity to a large city
+								<select id="curr-largecity">
+				        		<option value="NA">--</option>
+				        		<option value="1">1</option>
+				        		<option value="2">2</option>
+				        		<option value="3">3</option>
+				        		<option value="4">4</option>
+				        		<option value="5">5</option>
+				        		</select>
+				        		</li>
+				        		<li>Proximity to Family & Friends
+								<select id="curr-family">
+				        		<option value="NA">--</option>
+				        		<option value="1">1</option>
+				        		<option value="2">2</option>
+				        		<option value="3">3</option>
+				        		<option value="4">4</option>
+				        		<option value="5">5</option>
+				        		</select>
+				        		</li>
+				        		<li>Proximity to a major airport
+								<select id="curr-airport">
+				        		<option value="NA">--</option>
+				        		<option value="1">1</option>
+				        		<option value="2">2</option>
+				        		<option value="3">3</option>
+				        		<option value="4">4</option>
+				        		<option value="5">5</option>
+				        		</select>
+				        		</li>
+							</div>
+						</div>
+	 
+				
+						
+					</div>	
+						<div id="detailedcontainer">
+							<a href="#results"><input type="button" id="sub" value="Submit »" class="nav clouds-flat-button-sm"></a>		
+							<a href="#community"><input type="button" id="commid" value="« Community" class="nav clouds-flat-button-sm"></a>				</div>
+				</div>		
+
+			</div>
+								
+
+		</div>
+	</div>
+</div>
+<div id="results">
+	<div class="pagecontainer">
+		<div class="inlineblock">
+			<div class="section group">
+				<div class="col span_3_of_3 sixty">
+					<div class="leadin">
+					<div class="highlightbox results">
+					<span class="highlight results">
+
+					Done! Here's what you chose:</span>
+<!--					<div id="spacelead">
+					<span class="highlight results">
+					</span>
+					</div>					
+					</div> -->
+					</div>	
+					<div class="col span_3_of_3">
+						<div class="col span_2_of_3">
+						<h2 class="resultspre">Your next home will be a </h2> 
+						<br><span class="home-choice-title">______</span> 
+						<h2 class="resultspre"> in a </h2> 
+						<span class="transect-choice-title">______</span> 
+						<div id="home-choice-img">
+						</div>
+						<div id="home-choice-description">
+						</div>
+						
+						
+						</div>
+						<div class="col span_2_of_3">
+						<h2 class="resultspre">Here's how far your</h2> 
+						<br>
+						<span class="home-choice-title">_______</span>
+						<h2 class="resultspre">will be from common needs:</h2>
+					
+
+						
+						<div class="block">
+							<div class="resultsdist">Grocery Store:</div>  <div id="grocery-results" class="resultsdistnum">--</div>
+						</div>
+						<div class="block">
+						<div class="resultsdist">Cafes & Coffee Shops:</div>  <div id="cafe-results" class="resultsdistnum">--</div> 
+						</div>
+						<div class="block">
+						<div class="resultsdist">Places of Worship:</div>  <div id="worship-results" class="resultsdistnum">--</div> 
+						</div>
+						<div class="block">
+						<div class="resultsdist">Restaurants:</div>  <div id="restaurants-results" class="resultsdistnum">--</div> 
+						</div>
+						<div class="block">
+						<div class="resultsdist">Educational Events:</div>  <div id="edu-results" class="resultsdistnum">--</div>
+						</div>
+						<div class="block">						
+						<div class="resultsdist">Arts & Entertainment:</div>  <div id="arts-results" class="resultsdistnum">--</div>
+						</div>
+						<div class="block">
+						<div class="resultsdist">Parks & Outdoor Rec: </div> <div id="rec-results" class="resultsdistnum">--</div>
+						</div>
+						<div class="block">
+						<div class="resultsdist">Medical Care:</div>  <div id="med-results" class="resultsdistnum">--</div>
+						</div>
+						
+
+						
+						</div>
+						
+						<div id="mode-choice">
+							
+						</div>
+					
+
+					</div>
+					</div>
+
+			</div> 
+			<div class="col span_3_of_3 thirty">
+							<div class="col email">
+								
+								<div id="email-link">
+									<div id="thankyou">
+							Thanks for participating!
+						</div>
+								
+								<div class="tips-black">
+									<span class="bold">
+									Stay informed about the Bloomington Lifetime Communities District </span>
+									<br>
+									Your Email: <input type="email" /> <button id="email-submit">Submit</button> 
+								<div class="fine-print">(Your email address won't be linked with the survey.)</div> 
+								
+							<hr>
+							<span class="bold"> <a href="https://www.youtube.com/watch?v=egpnVT289Oc">Watch this video</a> to learn more about Lifetime Community Districts </span>
+								</div>
+								
+								<div id="alldone">Thanks! You're all done.
+									<br><a href="/#">Play Again</a>	
+								</div>
+								</div>
+							
+							</div>	
+							
+							
+						</div>
+			
+		</div>
+		
+	</div>	
+</div>
+</div>
+
+</body>
+</html>

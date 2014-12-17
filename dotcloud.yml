@@ -1,0 +1,13 @@
+www:
+  type: static
+  
+db:
+  type: mysql
+
+  # Add This...........................................
+  # New service, can be any name, but type must be php.
+  # approot should be phpmyadmin since that is where
+  # you put the github code in the clone step.
+pma:                   # <-- new service
+  type: php            # <-- new type
+  approot: phpmyadmin-on-dotcloud  # <-- new subdir of code
